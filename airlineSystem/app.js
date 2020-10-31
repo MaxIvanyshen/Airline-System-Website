@@ -1,12 +1,14 @@
 
 const bodyParser = require('body-parser');
+const { setupMaster } = require('cluster');
 const express = require('express');
+const { setUncaughtExceptionCaptureCallback } = require('process');
 const { func } = require('prop-types');
 const app = express();
 const sqlite = require('sqlite3');
 let random = Math.random().toString(36).substring(7);
 
-let login = false;
+var login = false;
 var user;
 
 app.use(express.static('public'));
@@ -26,17 +28,13 @@ let db = new sqlite.Database('./airline.db', (err) => {
 });
 
 app.get('/', function(req, res) {
-    res.render('index');
-});
-
-app.get('/logged', (req, res) => {
-    if(login === true) {
+    if(login == true) {
         res.render('indexLoggedIn', {
             user: user
         });
     }
     else {
-        res.redirect('/');
+        res.render('index');
     }
 });
 
@@ -76,9 +74,48 @@ app.post('/sign_up', (req, res) => {
         });
     }
     
-    db.run('INSERT INTO users(id, firstname, surname, email, password,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', [random, firstName, lastName, email, password, cardNumber, cvv]);
+    db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', [random, firstName, lastName, email, password, cardNumber, cvv]);
     login = true;
-    user = firstName + " " + lastName;
-    res.redirect('/logged');
+    user = firstName;
+    res.redirect('/');
 });
 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+var login;
+
+function setTrue() {
+    login = true;
+}
+
+function setUser(name) {
+    user = name;
+}
+
+app.post('/login', function(req, res) {
+    var email = req.body.email;
+    var password = req.body.password;
+    var passwordToCheck;
+
+    var firstname;
+    var state;
+
+    db.all("SELECT firstname, pass FROM users WHERE email = ?", [email], function(err, rows) {
+        rows.forEach(function(row) {
+            passwordToCheck = row.pass;
+            
+            if(password == row.pass) {
+                login = true;
+                user = row.firstname;
+                res.redirect('/');
+            }
+            else {
+                res.render('show_state', {
+                    state: 'Invalid email or password!'
+                });
+            }
+        });
+    });
+});

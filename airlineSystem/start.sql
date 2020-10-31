@@ -3,7 +3,7 @@ CREATE TABLE users(
     firstname TEXT,
     surname TEXT,
     email TEXT,
-    password TEXT,
+    pass TEXT,
     cardNumber VARCHAR(7),
     cvv VARCHAR(3),
     transactions TEXT

@@ -309,3 +309,18 @@ body {
     top: 18%;
     left: 81%;
 }
+.createAcc {
+    width: 100%;
+	background: #ebd0ce;
+	padding: 10px;
+	border: 0;
+	border-radius: 3px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	cursor: pointer;
+}
+.donotLabel {
+    display: block;
+	margin-bottom: 3px;
+	color: #9597a6;
+}
