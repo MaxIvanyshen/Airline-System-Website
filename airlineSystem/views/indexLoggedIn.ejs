@@ -1,0 +1,490 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div class="header">
+            <div className="logo">
+                <h1 style="color: white" class="name">UAirlines</h1>
+                <img class="logoIcon" src="free-airplane-icon-1755-thumb.png" alt="airplane"/>
+            </div>
+        <div class="logInOrSignIn">
+            <a href="/user">
+                <div>
+                    <img class="userIcon" src="userIcon.png" alt="">
+                    <h2 class="userName"><%= user %></h2>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="mainPart">
+        <div class="background">
+            <img class="backgroundImage" src="cropped.jpg" alt="background"/>
+        </div>
+        <div class="tabsContainer">
+            <div class="tabs">
+                <input type="radio" name="tabs" id="tabone" checked="checked">
+                <label for="tabone">Eupore</label>
+                <div class="tab">
+                    <div class="list">
+                        <div class="column">
+                            <h4>Ukraine: </h4>
+                            <ul class="ukrainefranceList">
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Kyiv">
+                                        <input type="submit"class="submitCity" value="Kyiv">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Vinnytsya">
+                                        <input type="submit" class="submitCity"value="Vinnytsya">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Kharkiv">
+                                        <input type="submit"class="submitCity" value="Kharkiv">
+                                    </form>
+                                </li>
+                            </ul>
+    
+                            <h4>United Kingdom:</h4>
+                                    <ul class="ukList">
+                                        <li>
+                                            <form method="POST">
+                                                <input class="toHide" name="city" type="text" value="London">
+                                                <input type="submit"class="submitCity" value="London">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form method="POST">
+                                                <input class="toHide" name="city" type="text" value="Aberdeen">
+                                                <input type="submit" class="submitCity"value="Aberdeen">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form method="POST">
+                                                <input class="toHide" name="city" type="text" value="Birmingham">
+                                                <input type="submit"class="submitCity" value="Birmingham">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form method="POST">
+                                                <input class="toHide" name="city" type="text" value="Manchester">
+                                                <input type="submit"class="submitCity" value="Manchester">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form method="POST">
+                                                <input class="toHide" name="city" type="text" value="Liverpool">
+                                                <input type="submit"class="submitCity" value="Liverpool">
+                                            </form>
+                                        </li>
+                                    </ul>
+                        </div>
+                        <div class="column">
+                            <h4>France:</h4>
+                                <ul class="franceList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Paris">
+                                            <input type="submit"class="submitCity" value="Paris">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Marsielle">
+                                            <input type="submit"class="submitCity" value="Marsielle">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Avignon">
+                                            <input type="submit"class="submitCity" value="Avignon">
+                                        </form>
+                                    </li>
+                                </ul>
+
+                                <h4>Italy:</h4>
+                                <ul class="italyList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Rome">
+                                            <input type="submit"class="submitCity" value="Rome">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Milan">
+                                            <input type="submit"class="submitCity" value="Milan">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Florence">
+                                            <input type="submit"class="submitCity" value="Florence">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Brescia">
+                                            <input type="submit"class="submitCity" value="Brescia">
+                                        </form>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Turkey:</h4>
+                                <ul class="turkeyList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Istanbul">
+                                            <input type="submit"class="submitCity" value="Istanbul">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Ankara">
+                                            <input type="submit"class="submitCity" value="Ankara">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Izmir">
+                                            <input type="submit"class="submitCity" value="Izmir">
+                                        </form>
+                                    </li>
+                                </ul>
+
+                                <h4>Spain:</h4>
+                                <ul class="spainList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Madrid">
+                                            <input type="submit"class="submitCity" value="Madrid">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Barcelona">
+                                            <input type="submit"class="submitCity" value="Barcelona">
+                                        </form>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Portugal:</h4>
+                                <ul class="portugalList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Lisbon">
+                                            <input type="submit"class="submitCity" value="Lisbon">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Porto">
+                                            <input type="submit"class="submitCity" value="Porto">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Faro">
+                                            <input type="submit" class="submitCity" value="Faro">
+                                        </form>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>                    
+                </div>
+                
+                <input type="radio" name="tabs" id="tabtwo">
+                <label for="tabtwo">America</label>
+                <div class="tab">
+                  <div class="list">
+                      <div class="column">
+                        <h4>USA:</h4>
+                        <ul class="usaList">
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Atlanta">
+                                    <input type="submit"class="submitCity" value="Atlanta">
+                                </form>
+
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Los Angeles">
+                                    <input type="submit"class="submitCity" value="Los Angeles">
+                                </form>
+
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="New York">
+                                    <input type="submit"class="submitCity" value="New York">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Chicago">
+                                    <input type="submit"class="submitCity" value="Chicago">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="San Francisco">
+                                    <input type="submit"class="submitCity" value="San Francisco">
+                                </form>
+                            </li>
+                            <li>                                
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Alaska">
+                                    <input type="submit"class="submitCity" value="Alaska">
+                                </form>
+                            </li>
+                        </ul>
+
+                            <h4>Canada:</h4>
+                            <ul className="canadaList">
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Toronto">
+                                        <input type="submit" class="submitCity" value="Toronto">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Edmonton">
+                                        <input type="submit" class="submitCity" value="Edmonton">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Montreal">
+                                        <input type="submit" class="submitCity" value="Montreal">
+                                    </form>
+                                </li>
+                            </ul>
+                      </div>
+                      <div class="column">
+                        <h4>Mexico:</h4>
+                        <ul className="mexicoList">
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Mexico">
+                                    <input type="submit" class="submitCity" value="Mexico">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Los Cabos">
+                                    <input type="submit" class="submitCity" value="Los Cabos">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Guadalajara">
+                                    <input type="submit" class="submitCity" value="Guadalajara">
+                                </form>
+                            </li>
+                        </ul>
+
+                        <h4>Argentina:</h4>
+                            <ul className="argentinaList">
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Buenos Aires">
+                                        <input type="submit" class="submitCity" value="Buenos Aires">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Chubut">
+                                        <input type="submit" class="submitCity" value="Chubut">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Catamarka">
+                                        <input type="submit" class="submitCity" value="Catamarka">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Santa Fe">
+                                        <input type="submit" class="submitCity" value="Santa Fe">
+                                    </form>
+                                </li>
+                            </ul>
+                      </div>
+
+                      <div class="column">
+                        <h4>Brazil:</h4>
+                        <ul className="brazilList">
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Sao Paulo">
+                                    <input type="submit" class="submitCity" value="Sao Paulo">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Brasilia">
+                                    <input type="submit" class="submitCity" value="Brasilia">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Rio de Janeiro">
+                                    <input type="submit" class="submitCity" value="Rio de Janeiro">
+                                </form>
+                            </li>
+                        </ul>
+
+                        <h4>Bolivia:</h4>
+                            <ul className="boliviaList">
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Apolo">
+                                        <input type="submit" class="submitCity" value="Apolo">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Cobija">
+                                        <input type="submit" class="submitCity" value="Cobija">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <input class="toHide" name="city" type="text" value="Camiri">
+                                        <input type="submit" class="submitCity" value="Camiri">
+                                    </form>
+                                </li>
+                            </ul>
+                      </div>
+                      <div class="column">
+                        <h4>Chile:</h4>
+                        <ul className="chileList">
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Santiago">
+                                    <input type="submit" class="submitCity" value="Santiago">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="San Pedro">
+                                    <input type="submit" class="submitCity" value="San Pedro">
+                                </form>
+                            </li>
+                        </ul>
+                      </div>
+                  </div>
+                </div>
+                
+                <input type="radio" name="tabs" id="tabthree">
+                <label for="tabthree">Australia and Middle-East</label>
+                <div class="tab">
+                    <div class="list">
+                        <div class="column">
+                            <h4>Australia</h4>
+                          <ul className="australiaList">
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Sydney">
+                                    <input type="submit" class="submitCity" value="Sydney">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Melbourne">
+                                    <input type="submit" class="submitCity" value="Melbourne">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Darwin">
+                                    <input type="submit" class="submitCity" value="Darwin">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Perth">
+                                    <input type="submit" class="submitCity" value="Perth">
+                                </form>
+                            </li>
+                          </ul>
+      
+                          <h4>UAE:</h4>
+                                  <ul className="uaeList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Abu Dhabi">
+                                            <input type="submit" class="submitCity" value="Abu Dhabi">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Dubai">
+                                            <input type="submit" class="submitCity" value="Dubai">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Dalma Island">
+                                            <input type="submit" class="submitCity" value="Dalma Island">
+                                        </form>
+                                    </li>
+                                  </ul>
+                        </div>
+                        <div class="column">
+                          <h4>Egypt:</h4>
+                          <ul className="egyptList">
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Cairo">
+                                    <input type="submit" class="submitCity" value="Cairo">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Alexandria">
+                                    <input type="submit" class="submitCity" value="Alexandria">
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST">
+                                    <input class="toHide" name="city" type="text" value="Aswan">
+                                    <input type="submit" class="submitCity" value="Aswan">
+                                </form>
+                            </li>
+                          </ul>
+      
+                          <h4>Qatar:</h4>
+                                  <ul className="qatarList">
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Al Khor">
+                                            <input type="submit" class="submitCity" value="Al Khor">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST">
+                                            <input class="toHide" name="city" type="text" value="Doha">
+                                            <input type="submit" class="submitCity" value="Doha">
+                                        </form>
+                                    </li>
+                                  </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+        </div>
+    <div class="footer">
+        <h3 class="copyright">Copyright ©2020 UAirlines</h3>
+    </div>
+
+    </body>
+</html>
