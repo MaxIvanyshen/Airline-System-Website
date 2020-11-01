@@ -10,6 +10,7 @@ let random = Math.random().toString(36).substring(7);
 
 var login = false;
 var user;
+var id;
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -30,7 +31,8 @@ let db = new sqlite.Database('./airline.db', (err) => {
 app.get('/', function(req, res) {
     if(login == true) {
         res.render('indexLoggedIn', {
-            user: user
+            user: user,
+            id: id
         });
     }
     else {
@@ -61,8 +63,6 @@ app.post('/sign_up', (req, res) => {
 
     var state;
 
-    console.log(email);
-
     if(password1 === password2) {
         state = "Alright";
         var password = password1;
@@ -77,22 +77,13 @@ app.post('/sign_up', (req, res) => {
     db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', [random, firstName, lastName, email, password, cardNumber, cvv]);
     login = true;
     user = firstName;
+    id = random;
     res.redirect('/');
 });
 
 app.get('/login', (req, res) => {
     res.render('login');
 });
-
-var login;
-
-function setTrue() {
-    login = true;
-}
-
-function setUser(name) {
-    user = name;
-}
 
 app.post('/login', function(req, res) {
     var email = req.body.email;
@@ -102,16 +93,17 @@ app.post('/login', function(req, res) {
     var firstname;
     var state;
 
-    db.all("SELECT firstname, pass FROM users WHERE email = ?", [email], function(err, rows) {
+    db.all("SELECT id, firstname, pass FROM users WHERE email = ?", [email], function(err, rows) {
         rows.forEach(function(row) {
             passwordToCheck = row.pass;
-            
+
             if(password == row.pass) {
                 login = true;
                 user = row.firstname;
+                id = row.id;
                 res.redirect('/');
             }
-            else {
+            else {                
                 res.render('show_state', {
                     state: 'Invalid email or password!'
                 });

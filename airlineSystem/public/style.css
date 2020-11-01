@@ -300,14 +300,14 @@ body {
 .userName {
     color: white;
     position: absolute;
-    top: 5%;
+    top: 4%;
     left: 85%;
 }
 .userIcon {
     width: 3%;
     position: absolute;
     top: 18%;
-    left: 81%;
+    left: 81.5%;
 }
 .createAcc {
     width: 100%;
@@ -323,4 +323,11 @@ body {
     display: block;
 	margin-bottom: 3px;
 	color: #9597a6;
+}
+.userId {
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    top: 35%;
+    left: 85.15%;
 }
