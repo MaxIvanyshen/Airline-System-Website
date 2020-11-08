@@ -1,0 +1,91 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div class="header">
+            <div className="logo">
+                <h1 style="color: white" class="nameMain">UAirlines</h1>
+                <img class="logoIcon" src="free-airplane-icon-1755-thumb.png" alt="airplane"/>
+            </div>
+        <div class="logInOrSignIn">
+            <a href="/user">
+                <div>
+                    <img class="userIcon" src="userIcon.png" alt="">
+                    <h2 class="userName"><%= user %></h2>
+                    <h5 class="userId"><%= id %></h4>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="mainPart">
+        <div class="background">
+            <img class="backgroundImage" src="cropped.jpg" alt="background"/>
+        </div>
+        <div class="box">
+            <div class="clip"></div>
+            <ul class="left">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            
+            <ul class="right">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            
+            <div class="ticket">
+              <span class="airline">Postsnap</span>
+              <span class="airline airlineslip">Postsnap</span>
+              <span class="boarding">Boarding pass</span>
+              <div class="content">
+                <span class="jfk">UAirlines</span>
+
+                <div class="sub-content">
+                  <span class="watermark">Postsnap</span>
+                  <span class="name">PASSENGER NAME<br><span><%= name %></span></span>
+                  <span class="flight">FLIGHT N&deg;<br><span><%= flight %></span></span>
+                  <span class="gate">GATE<br><span>11B</span></span>
+                  <span class="seat">SEAT<br><span><%= seat %></span></span>
+                  <span class="boardingtime">BOARDING TIME<br><span><%= dateTime %>></span></span>
+                      
+                   <span class="flight flightslip">FLIGHT N&deg;<br><span><%= flight %></span></span>
+                    <span class="seat seatslip">SEAT<br><span><%= seat %></span></span>
+                   <span class="name nameslip">PASSENGER NAME<br><span><%= name %></span></span>
+                </div>
+              </div>
+            </div>
+          </div>   
+        <div>
+            <form method="POST">
+                <input type="submit" class="submitTicketFinish" value="Finish">
+            </form>
+        </div>     
+    </div>
+    <div class="footer">
+        <h3 class="copyright">Copyright ©2020 UAirlines</h3>
+    </div>
+    </body>
+</html>

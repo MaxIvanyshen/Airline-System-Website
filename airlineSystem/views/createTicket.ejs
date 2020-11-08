@@ -1,0 +1,61 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div class="header">
+            <div className="logo">
+                <h1 style="color: white" class="nameMain">UAirlines</h1>
+                <img class="logoIcon" src="free-airplane-icon-1755-thumb.png" alt="airplane"/>
+            </div>
+        <div class="logInOrSignIn">
+            <a href="/user">
+                <div>
+                    <img class="userIcon" src="userIcon.png" alt="">
+                    <h2 class="userName"><%= user %></h2>
+                    <h5 class="userId"><%= id %></h4>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="mainPart">
+        <div class="background">
+            <img class="backgroundImage" src="cropped.jpg" alt="background"/>
+        </div>
+        <div class="ticketContainer">
+            <img src="white-fone.png" class="ticketFone">
+            <div class="fromTo">
+                <form method="POST">
+                    <input type="text" class="cityFrom" placeholder="From" name="cityFrom">
+                    <div class="radioBtn">
+                        <h3>Class:</h3>
+                        <div class="form_radio_btn">
+                            <input id="radio-1" type="radio" name="radio" value="1" checked>
+                            <label for="radio-1">First</label>
+                        </div>
+                         
+                        <div class="form_radio_btn">
+                            <input id="radio-2" type="radio" name="radio" value="2">
+                            <label for="radio-2">Business</label>
+                        </div>
+                         
+                        <div class="form_radio_btn">
+                            <input id="radio-3" type="radio" name="radio" value="3">
+                            <label for="radio-3">Economy</label>
+                        </div>
+                    </div>     
+                    <div class="date-Time">
+                        <h4>Date: </h4>
+                        <input type="text" name="date">
+                        <h4>Time</h4>
+                        <input type="text" name="time">
+                    </div>               
+                    <input type="submit" class="submitTicketBtn" value="Next">
+                </form>
+                <h3 class="to">to <%= cityTo %></h3>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h3 class="copyright">Copyright ©2020 UAirlines</h3>
+    </div>
+    </body>
+</html>

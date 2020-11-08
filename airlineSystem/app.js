@@ -1,7 +1,9 @@
 
 const bodyParser = require('body-parser');
 const { setupMaster } = require('cluster');
+const { WSAEPFNOSUPPORT } = require('constants');
 const express = require('express');
+const { toNamespacedPath } = require('path');
 const { setUncaughtExceptionCaptureCallback } = require('process');
 const { func } = require('prop-types');
 const app = express();
@@ -11,6 +13,7 @@ let random = Math.random().toString(36).substring(7);
 var login = false;
 var user;
 var id;
+var lastname;
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -40,13 +43,105 @@ app.get('/', function(req, res) {
     }
 });
 
+var cityTo;
+
 app.post('/', (req, res) => {
-    var city = req.body.city;
-    console.log(city);
+    cityTo = req.body.city;
+    if(login == true) {
+        res.redirect('/create_ticket');
+    }
     if(login === false) {
         res.redirect('/login')
     }
-})
+});
+
+app.get('/create_ticket', (req, res) => {
+    if(login == true) {
+        res.render('createTicket', {
+            cityTo: cityTo, 
+            id: id,
+            user: user
+        });
+    }
+    else {
+        res.redirect('/login');
+    }
+});
+
+var from;
+var to;
+var peopleNumber;
+var classType;
+var dateTime;
+
+app.post('/create_ticket', (req, res) => {
+    from = req.body.cityFrom;
+    to = cityTo;
+    peopleNumber = req.body.peopleNumber;
+    classType = req.body.radio;
+    dateTime = req.body.date + " " + req.body.time;
+
+    res.redirect('/confirm_ticket');
+});
+
+app.get('/confirm_ticket', (req, res) => {
+    var c;
+    var random_seat;
+
+    let random_c = Math.floor(Math.random() * 6)
+    let random_num = Math.floor(Math.random() * 15);
+
+    if(random_c == 1) {
+        c = 'A';
+    }
+    if(random_c == 2) {
+        c = 'B';
+    }
+    if(random_c == 3) {
+        c = 'C';
+    }
+    if(random_c == 4) {
+        c = 'D';
+    }
+    if(random_c == 5) {
+        c = 'E';
+    }
+    if(random_c == 6) {
+        c = 'F';
+    }
+
+    random_seat = c + random_num;
+    
+    let random = Math.random().toString(36).substring(7);
+
+    var ct;
+    if(classType == 1) {
+        ct = 'First';
+    }
+    if(classType == 2){
+        ct = 'Business';
+    }
+    if(classType == 3) {
+        ct = 'Economy';
+    }
+
+    res.render('confirm', {
+        name: user + " " + lastname,
+        user: user,
+        id: id,
+        from: from,
+        to: to,
+        peopleNumber: peopleNumber,
+        classType: ct,
+        dateTime: dateTime,
+        seat: random_seat,
+        flight: random.toUpperCase()
+    });
+});
+
+app.post('/confirm_ticket', (req, res) => {
+    
+});
 
 app.get('/sign_up', (req, res) => {
     res.render('sign_up');
@@ -74,10 +169,11 @@ app.post('/sign_up', (req, res) => {
         });
     }
     
-    db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', [random, firstName, lastName, email, password, cardNumber, cvv]);
+    db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', ['#' + random, firstName, lastName, email, password, cardNumber, cvv]);
     login = true;
     user = firstName;
-    id = random;
+    lastname = lastName;
+    id = '#' + random;
     res.redirect('/');
 });
 
@@ -93,13 +189,14 @@ app.post('/login', function(req, res) {
     var firstname;
     var state;
 
-    db.all("SELECT id, firstname, pass FROM users WHERE email = ?", [email], function(err, rows) {
+    db.all("SELECT id, firstname, pass, surname FROM users WHERE email = ?", [email], function(err, rows) {
         rows.forEach(function(row) {
             passwordToCheck = row.pass;
 
             if(password == row.pass) {
                 login = true;
                 user = row.firstname;
+                lastname = row.surname;
                 id = row.id;
                 res.redirect('/');
             }
