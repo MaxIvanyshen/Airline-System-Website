@@ -68,23 +68,21 @@ app.get('/create_ticket', (req, res) => {
     }
 });
 
+var price = null;
+
 var from;
 var to;
 var peopleNumber;
 var classType;
 var dateTime;
 
-app.post('/create_ticket', (req, res) => {
+app.post('/create_ticket', (req, res) => {    
+
     from = req.body.cityFrom;
     to = cityTo;
-    peopleNumber = req.body.peopleNumber;
     classType = req.body.radio;
     dateTime = req.body.date + " " + req.body.time;
 
-    res.redirect('/confirm_ticket');
-});
-
-app.get('/confirm_ticket', (req, res) => {
     var c;
     var random_seat;
 
@@ -125,22 +123,13 @@ app.get('/confirm_ticket', (req, res) => {
         ct = 'Economy';
     }
 
-    res.render('confirm', {
-        name: user + " " + lastname,
-        user: user,
-        id: id,
-        from: from,
-        to: to,
-        peopleNumber: peopleNumber,
-        classType: ct,
-        dateTime: dateTime,
-        seat: random_seat,
-        flight: random.toUpperCase()
-    });
-});
+    db.all("SELECT price FROM prices WHERE className = ?", [ct], function(err, rows) {
+        rows.forEach(function(row) {
+            db.run('UPDATE users SET transactions = ? WHERE firstname = ?', ['from: ' + from + '; to: ' + to + '; class: ' + ct + '; when: ' + dateTime + "; price: $" + row.price, user]);
+        });
 
-app.post('/confirm_ticket', (req, res) => {
-    
+        res.redirect('/');
+    });
 });
 
 app.get('/sign_up', (req, res) => {
