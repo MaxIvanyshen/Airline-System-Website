@@ -5,6 +5,5 @@ CREATE TABLE users(
     email TEXT,
     pass TEXT,
     cardNumber VARCHAR(7),
-    cvv VARCHAR(3),
-    transactions TEXT
+    cvv VARCHAR(3)
 );

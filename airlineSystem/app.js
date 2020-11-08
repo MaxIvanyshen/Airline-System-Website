@@ -110,7 +110,7 @@ app.post('/create_ticket', (req, res) => {
 
     random_seat = c + random_num;
     
-    let random = Math.random().toString(36).substring(7);
+    let randomId = Math.random().toString(36).substring(7);
 
     var ct;
     if(classType == 1) {
@@ -125,7 +125,13 @@ app.post('/create_ticket', (req, res) => {
 
     db.all("SELECT price FROM prices WHERE className = ?", [ct], function(err, rows) {
         rows.forEach(function(row) {
-            db.run('UPDATE users SET transactions = ? WHERE firstname = ?', ['from: ' + from + '; to: ' + to + '; class: ' + ct + '; when: ' + dateTime + "; price: $" + row.price, user]);
+            var price = row.price;
+            db.all("SELECT count(*) as count FROM transactions WHERE userName = ?", [user + " " + lastname], function(err, rows) {
+                rows.forEach(function(row) {
+                    db.run('INSERT INTO transactions(id, userName, whereFrom, whereTo, className, seat, whenDateTime, price, numberId)' + 
+                    'VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)', [randomId, user + " " + lastname, from, to, ct, random_seat, dateTime, price, row.count + 1]);
+                });
+            });
         });
 
         res.redirect('/');
@@ -150,6 +156,12 @@ app.post('/sign_up', (req, res) => {
     if(password1 === password2) {
         state = "Alright";
         var password = password1;
+    
+        db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', ['#' + random, firstName, lastName, email, password, cardNumber, cvv]);
+        login = true;
+        user = firstName;
+        lastname = lastName;
+        id = '#' + random;
     }
     if(password1 != password2) {
         state = "Passwords don`t match!";
@@ -157,12 +169,6 @@ app.post('/sign_up', (req, res) => {
             state: state
         });
     }
-    
-    db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', ['#' + random, firstName, lastName, email, password, cardNumber, cvv]);
-    login = true;
-    user = firstName;
-    lastname = lastName;
-    id = '#' + random;
     res.redirect('/');
 });
 
