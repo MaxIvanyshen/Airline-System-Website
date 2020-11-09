@@ -1,5 +1,6 @@
 CREATE TABLE transactions(
     id VARCHAR(15),
+    usersId VARCHAR(15),
     numberId INT,
     userName TEXT,
     whereFrom TEXT,

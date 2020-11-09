@@ -1,0 +1,51 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div class="header">
+            <div className="logo">
+                <h1 style="color: white" class="nameMain">UAirlines</h1>
+                <img class="logoIcon" src="free-airplane-icon-1755-thumb.png" alt="airplane"/>
+            </div>
+    </div>
+    <div class="mainPart">
+        <div class="mainInfoContainer">
+            <img class="userIconPage" src="userPageIcon.png" alt="">
+            <div class="nameId">
+                <h1 class="userPageName"><%= user %> <%= surname %></h1>
+                <h3 class="userPageId"><%= id %></h3>
+            </div>
+            <div class="container">
+                <h2>Email: <%= email %></h2>
+                <form method="POST">
+                    <input type="text" style="display: none;" name="postResult" value="<%= email %>">
+                    <input type="submit" class="changeEmailBtn" value="Change Email">
+                </form>
+                <h2>Password: ********</h2>
+                <form method="POST">
+                    <input type="text" style="display: none;" name="postResult" value="<%= pass %>">
+                    <input type="submit" class="changePassBtn" value="Change Password">
+                </form>
+                <h2>Card: <%= card %></h2>
+                <h2>Last transaction:</h2>
+                <h2><%= transaction %></h2>
+            </div>
+            <div class="deleteAcc">
+                <form method="POST">
+                    <input type="text" style="display: none;" name="postResult" value="delete">
+                    <input type="submit" class="deleteAccBtn" value="Delete Account">
+                </form>
+            </div>
+            <div class="logOut">
+                <form method="POST">
+                    <input type="text" style="display: none;" name="postResult" value="logout">
+                    <input type="submit" class="logoutBtn" value="Log Out">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h3 class="copyright">Copyright ©2020 UAirlines</h3>
+    </div>
+
+    </body>
+</html>

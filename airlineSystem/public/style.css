@@ -86,7 +86,7 @@ body {
 .footer {
     background-color: dimgrey;
     position: absolute;
-    top: 120%;
+    top: 114%;
     left: -0.3%;
     width: 100.3%;
 }
@@ -943,5 +943,97 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 13px;s
+    font-size: 13px;
+}
+.mainInfoContainer {
+  position: absolute;
+  top: 12.5%;
+  left: 5%;
+  display: flex;
+}
+.userIconPage {
+  height: 150px;
+  margin-top: 6%;
+}
+.userPageId {
+  margin-left: 10%;
+  margin-top: -10%;
+}
+.userPageName {
+  font-size: 75px;
+  margin-left: 5%;
+  width: 500px;
+}
+.container {
+  position: absolute;
+  top: 100%;
+  left: 5%;
+}
+.changeEmailBtn {
+  margin-top: -50%;
+  margin-left: 50%;
+  border-radius: 8px;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+
+  position: absolute;
+  top: 255%;
+  left: -50%;
+}
+.changePassBtn {
+  margin-top: -50%;
+  margin-left: 50%;
+  border-radius: 8px;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+
+  position: absolute;
+  top: 227.5%;
+  left: -50%;
+}
+.deleteAccBtn {
+  margin-top: -50%;
+  margin-left: 50%;
+  border-radius: 8px;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+
+  position: absolute;
+  top: 475%;
+  left: -45%;
+}
+.logoutBtn {
+  margin-top: -50%;
+  margin-left: 50%;
+  border-radius: 8px;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+
+  position: absolute;
+  top: 445%;
+  left: -45%;
 }
