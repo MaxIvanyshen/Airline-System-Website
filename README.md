@@ -1,5 +1,8 @@
 # Airline-System-Website
 ## Node js Express project 
+### General
+In this project I used my Node Js and Express knoledges to create a website for my fictional airline company named UAirlines
+
 
 ### Getting started
 install Node Js, Express and EJS to your machine
@@ -19,9 +22,6 @@ All the images and style.css are in the airlineSystem/public directory
 
 ### DB files 
 Main file - airlineSystem/airline.db where I loaded tables from sql files /airlineSystem/users.sql, /airlineSystem/transactions.sql, /airlineSystem/prices.sql
-
-### General
-In this project I used my Node Js and Express knoledges to create a website for my fictional airline company named UAirlines
 
 ## Warning
 Front-end works correctly when your page is 100% scale
