@@ -8,7 +8,7 @@ In this project I used my Node Js and Express knoledges to create a website for 
 install Node Js, Express and EJS to your machine <br/>
 cd to the root directory of the project and then to the 'airlineSystem' folder<br/>
 type 'node app.js' to start server<br/>
-go to hhtp://localhost:7000
+go to http://localhost:7000
 
 ### Main server file
 
