@@ -160,23 +160,36 @@ app.post('/sign_up', (req, res) => {
 
     var state;
 
-    if(password1 === password2) {
-        state = "Alright";
-        var password = password1;
-    
-        db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', ['#' + random, firstName, lastName, email, password, cardNumber, cvv]);
-        login = true;
-        user = firstName;
-        lastname = lastName;
-        id = '#' + random;
-    }
-    if(password1 != password2) {
-        state = "Passwords don`t match!";
-        res.render('show_state', {
-            state: state
+    db.all('SELECT count(*) as count FROM users WHERE email = ?', [email], (err, rows) =>{ 
+        rows.forEach((row) => {
+            var count = row.count;
+            if(count > 0) {
+                state = "Already have an account";
+                res.render('show_state', {
+                    state: state
+                });
+            }
+            if(count == 0) {
+                if(password1 === password2) {
+                    state = "Alright";
+                    var password = password1;
+                
+                    db.run('INSERT INTO users(id, firstname, surname, email, pass,  cardNumber, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)', ['#' + random, firstName, lastName, email, password, cardNumber, cvv]);
+                    login = true;
+                    user = firstName;
+                    lastname = lastName;
+                    id = '#' + random;
+                }
+                if(password1 != password2) {
+                    state = "Passwords don`t match!";
+                    res.render('show_state', {
+                        state: state
+                    });
+                }
+                res.redirect('/');
+            }
         });
-    }
-    res.redirect('/');
+    });    
 });
 
 app.get('/login', (req, res) => {
