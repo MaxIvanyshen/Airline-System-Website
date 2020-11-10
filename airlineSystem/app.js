@@ -191,23 +191,35 @@ app.post('/login', function(req, res) {
     var firstname;
     var state;
 
-    db.all("SELECT id, firstname, pass, surname FROM users WHERE email = ?", [email], function(err, rows) {
-        rows.forEach(function(row) {
-
-            if(password == row.pass) {
-                login = true;
-                user = row.firstname;
-                lastname = row.surname;
-                id = row.id;
-                res.redirect('/');
-            }
-            else {                
+    db.all('SELECT count(*) as count FROM users WHERE email = ?', [email], (err, rows) => {
+        rows.forEach((row) => {
+            var count = row.count
+            if(count > 0) {
+                db.all("SELECT id, firstname, pass, surname FROM users WHERE email = ?", [email], function(err, rows) {
+                    rows.forEach(function(row) {
+            
+                        if(password == row.pass) {
+                            login = true;
+                            user = row.firstname;
+                            lastname = row.surname;
+                            id = row.id;
+                            res.redirect('/');
+                        }
+                        else {                
+                            res.render('show_state', {
+                                state: 'Invalid email or password!'
+                            });
+                        }
+                    });
+                });
+            }   
+            else {
                 res.render('show_state', {
                     state: 'Invalid email or password!'
                 });
             }
         });
-    });
+    });    
 });
 
 app.get('/user', (req, res) => {
