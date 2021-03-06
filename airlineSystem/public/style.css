@@ -1037,3 +1037,10 @@ body {
   top: 445%;
   left: -45%;
 }
+.userFooter {
+  background-color: dimgrey;
+  position: absolute;
+  top: 129%;
+  left: -0.3%;
+  width: 100.3%;
+}
